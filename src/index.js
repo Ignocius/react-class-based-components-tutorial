@@ -30,7 +30,7 @@ class App extends Component {
             <h3>An error Occured, error type: {this.state.error}</h3>
             :
             <div>{this.state.lat ? <SeasonDisplay lat={this.state.lat} /> : 40} </div>
-          : <Loader />
+          : <Loader message="GeoLocation is loading" />
         }
       </div>
     );
