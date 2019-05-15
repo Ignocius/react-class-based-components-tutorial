@@ -8,8 +8,8 @@ const Loader = ({ message }) => {
   );
 };
 
-Spinner.defaultProps - {
-  message = 'Loading...'
+Loader.defaultProps = {
+  message: 'Loading...'
 };
 
 export default Loader;

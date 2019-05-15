@@ -22,16 +22,21 @@ class App extends Component {
     )
   }
 
+  renderContent() {
+    let renderElement
+    this.state.error || this.state.lat ?
+      this.state.error ? 
+      renderElement = <h3>An error Occured, error type: {this.state.error}</h3>
+      :
+      renderElement = <div>{this.state.lat ? <SeasonDisplay lat={this.state.lat} /> : 40} </div>
+    : renderElement = <Loader message="GeoLocation is loading" />
+    return renderElement
+  }
+
   render() {
     return (
       <div>
-        { this.state.error || this.state.lat ?
-          this.state.error ? 
-            <h3>An error Occured, error type: {this.state.error}</h3>
-            :
-            <div>{this.state.lat ? <SeasonDisplay lat={this.state.lat} /> : 40} </div>
-          : <Loader message="GeoLocation is loading" />
-        }
+        {this.renderContent()}
       </div>
     );
   } 
