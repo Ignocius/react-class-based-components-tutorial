@@ -23,10 +23,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        { this.state.error ? 
-          <h3>An error Occured, error type: {this.state.error}</h3>
-          :
-          <div>LatitudeL: {this.state.lat ? this.state.lat : 40} </div>
+        { this.state.error || this.state.lat ?
+          this.state.error ? 
+            <h3>An error Occured, error type: {this.state.error}</h3>
+            :
+            <div>LatitudeL: {this.state.lat ? this.state.lat : 40} </div>
+          : <div>Loading</div>
         }
       </div>
     );
