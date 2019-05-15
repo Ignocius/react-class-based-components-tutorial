@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import SeasonDisplay from './SeasonDisplay';
+import Loader from './Loader';
 
 class App extends Component {
   // constructor(props) {
@@ -11,7 +13,6 @@ class App extends Component {
   // }
 
   //alternate state declare
-
   state = { lat: null, error: '' };
 
   componentDidMount() {
@@ -28,8 +29,8 @@ class App extends Component {
           this.state.error ? 
             <h3>An error Occured, error type: {this.state.error}</h3>
             :
-            <div>LatitudeL: {this.state.lat ? this.state.lat : 40} </div>
-          : <div>Loading</div>
+            <div>{this.state.lat ? <SeasonDisplay lat={this.state.lat} /> : 40} </div>
+          : <Loader />
         }
       </div>
     );
